@@ -35,7 +35,7 @@ function budgetCalculator(watch, phone, laptop) {
         return wrongValue;
     }
     //empty call exception handling
-    else if(typeof watch == 'undefined' || typeof phone == 'undefined' ||typeof laptop == 'undefined'){
+    else if (typeof watch == 'undefined' || typeof phone == 'undefined' || typeof laptop == 'undefined') {
         emptyValue = "Please fill all the value. Input can't be empty"
         return emptyValue;
     }
@@ -136,6 +136,8 @@ function megaFriend(nameArray) {
         for (var i = 0; i < nameArray.length; i++) {
             if (typeof nameArray[i] == 'string') {
                 temp = nameArray[i];
+                temp = temp.replace(/\s+/g, ' ');
+
                 if (temp.length > longNmae.length) {
                     longNmae = temp;
                 }
@@ -147,14 +149,14 @@ function megaFriend(nameArray) {
         }
         return longNmae;
     }
-    else{
-        if(typeof nameArray[0] !== 'string'){
+    else {
+        if (typeof nameArray[0] !== 'string') {
             var stringCheck = "This is not a name! please enter name.\n Also rember to enter two or more name!"
-                return stringCheck;
+            return stringCheck;
         }
-        else{
-        var oneNameparadox = "You can not compare biggest name from one name!\n please give two or more name in input "
-        return oneNameparadox;
+        else {
+            var oneNameparadox = "You can not compare biggest name from one name!\n please give two or more name in input "
+            return oneNameparadox;
         }
     }
 

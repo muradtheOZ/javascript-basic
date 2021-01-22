@@ -1,7 +1,4 @@
-/*kilometerToMeter
-budgetCalculator ghori 50, phone 100, laptop 500;
-hotelCost
-megaFriend*/
+
 
 
 function kilometerToMeter(kilometer) {
@@ -13,7 +10,7 @@ function kilometerToMeter(kilometer) {
     }
     //wrong data type expetion handling
     else if (typeof kilometer !== 'number' && typeof kilometer !== 'undefined') {
-        var wrongType = "Mistakenly you enterd a value which is not number. Please  a give number in input";
+        var wrongType = "Mistakenly you enterd a value which is not number. Please  give number in input";
         return wrongType;
 
     }
@@ -24,7 +21,7 @@ function kilometerToMeter(kilometer) {
     }
     //empty call exeption handling
     else {
-        var emptyValue = "You can not submit empty value! please eneter  distance in a number"
+        var emptyValue = "Please eneter a value. Input can't be empty"
         return emptyValue;
     }
 }
@@ -37,9 +34,14 @@ function budgetCalculator(watch, phone, laptop) {
         var wrongValue = "Please enetr a real value! you can't buy  minus number of product";
         return wrongValue;
     }
-    //data type and empty call exception handling
+    //empty call exception handling
+    else if(typeof watch == 'undefined' || typeof phone == 'undefined' ||typeof laptop == 'undefined'){
+        emptyValue = "Please fill all the value. Input can't be empty"
+        return emptyValue;
+    }
+    //data type exception handling
     else if (typeof watch !== 'number' || typeof phone !== 'number' || typeof laptop !== 'number') {
-        var notNumber = "Are you sure you entered a number? please enter your number correctly again"
+        var notNumber = "Mistakenly you enterd a value which is not number. Please  give number in input"
         return notNumber;
     }
     //main calculation
@@ -70,7 +72,7 @@ function hotelCost(days) {
 
     //wrong data type expetion handling
     else if (typeof days !== 'number' && typeof days !== 'undefined') {
-        var wrongType = "Mistakenly you enterd a value which is not number. Please  a give number in input";
+        var wrongType = "Mistakenly you enterd a value which is not number. Please  give number in input";
         return wrongType;
 
     }
@@ -103,12 +105,59 @@ function hotelCost(days) {
 
     //empty call exeption handling
     else {
-        var emptyValue = "You can not submit empty value! please eneter a value"
+        var emptyValue = "Please eneter a value. Input can't be empty"
         return emptyValue;
     }
 
 }
 
 
+function megaFriend(nameArray) {
+    var temp = "";
+    var longNmae = "";
+
+    //without value fucntion call handling
+    if (typeof nameArray == [] || typeof nameArray == 'undefined') {
+        var emptyvalue = "Please eneter a value. Input can't be empty";
+        return emptyvalue;
+    }
+    else if (nameArray.length == 0) {
+        var emptyObject = "please add some value in your object";
+        return emptyObject;
+    }
+    // wrong data type handling
+    else if (typeof nameArray !== 'object') {
+        var wrongType = "Mistakenly you enterd a value which is not name list(object). Please  giva a name list(object) in input"
+        return wrongType;
+
+    }
+    //main calculation with wrong object type handling and wrong value also;
+    else if (nameArray.length > 1) {
+        for (var i = 0; i < nameArray.length; i++) {
+            if (typeof nameArray[i] == 'string') {
+                temp = nameArray[i];
+                if (temp.length > longNmae.length) {
+                    longNmae = temp;
+                }
+            }
+            else {
+                var stringCheck = "all of the value is not name, please give name in full list"
+                return stringCheck;
+            }
+        }
+        return longNmae;
+    }
+    else{
+        if(typeof nameArray[0] !== 'string'){
+            var stringCheck = "This is not a name! please enter name.\n Also rember to enter two or more name!"
+                return stringCheck;
+        }
+        else{
+        var oneNameparadox = "You can not compare biggest name from one name!\n please give two or more name in input "
+        return oneNameparadox;
+        }
+    }
+
+}
 
 
